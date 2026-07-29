@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --color-cream: #faf3e8;
+  --color-cream-dark: #f0e4d0;
+  --color-terracotta: #c1623a;
+  --color-terracotta-dark: #a34e2c;
+  --color-brown: #5c4433;
+  --color-brown-dark: #3c2c21;
+  --color-sage: #8a9a6b;
+  --color-sage-dark: #6f7f52;
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-cream-dark: var(--color-cream-dark);
+  --color-terracotta: var(--color-terracotta);
+  --color-terracotta-dark: var(--color-terracotta-dark);
+  --color-brown: var(--color-brown);
+  --color-brown-dark: var(--color-brown-dark);
+  --color-sage: var(--color-sage);
+  --color-sage-dark: var(--color-sage-dark);
+
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-work-sans);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-brown-dark);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Scroll reveal (used by components/ui/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* One-shot entrance animation for above-the-fold content (Hero) */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out both;
+}
+
+/* Soft glow pulse for the primary hero CTA */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(193, 98, 58, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(193, 98, 58, 0);
+  }
+}
+
+.btn-pulse {
+  animation: pulse-glow 2.5s ease-out infinite;
+}
+
+/* Warm, soft card depth used by Problem, Features and Testimonials cards */
+.card-elevate {
+  box-shadow: 0 10px 30px -18px rgba(60, 44, 33, 0.35);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.card-elevate:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(60, 44, 33, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-fade-in-up,
+  .btn-pulse {
+    animation: none;
+  }
+
+  .card-elevate,
+  .card-elevate:hover {
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --color-cream: #faf3e8;
-  --color-cream-dark: #f0e4d0;
-  --color-terracotta: #c1623a;
-  --color-terracotta-dark: #a34e2c;
-  --color-brown: #5c4433;
-  --color-brown-dark: #3c2c21;
-  --color-sage: #8a9a6b;
-  --color-sage-dark: #6f7f52;
+  --color-cream: #fbf3ec;
+  --color-cream-dark: #f5e6d9;
+  --color-terracotta: #e8523a;
+  --color-terracotta-dark: #c43f2a;
+  --color-brown: #6b4335;
+  --color-brown-dark: #3a1b12;
+  --color-amber: #ef9f27;
+  --color-peach: #fbd9ce;
+  --color-sand: #ead9c9;
+  --color-confirm: #2fbf6f;
 }
 
 @theme inline {
@@ -18,10 +20,12 @@
   --color-terracotta-dark: var(--color-terracotta-dark);
   --color-brown: var(--color-brown);
   --color-brown-dark: var(--color-brown-dark);
-  --color-sage: var(--color-sage);
-  --color-sage-dark: var(--color-sage-dark);
+  --color-amber: var(--color-amber);
+  --color-peach: var(--color-peach);
+  --color-sand: var(--color-sand);
+  --color-confirm: var(--color-confirm);
 
-  --font-serif: var(--font-fraunces);
+  --font-serif: var(--font-baloo);
   --font-sans: var(--font-work-sans);
 }
 
@@ -66,10 +70,10 @@ body {
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(193, 98, 58, 0.35);
+    box-shadow: 0 0 0 0 rgba(232, 82, 58, 0.35);
   }
   50% {
-    box-shadow: 0 0 0 14px rgba(193, 98, 58, 0);
+    box-shadow: 0 0 0 14px rgba(232, 82, 58, 0);
   }
 }
 
@@ -79,13 +83,15 @@ body {
 
 /* Warm, soft card depth used by Problem, Features and Testimonials cards */
 .card-elevate {
-  box-shadow: 0 10px 30px -18px rgba(60, 44, 33, 0.35);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  border: 1px solid var(--color-sand);
+  box-shadow: 0 10px 30px -18px rgba(58, 27, 18, 0.35);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
 }
 
 .card-elevate:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -20px rgba(60, 44, 33, 0.45);
+  border-color: var(--color-terracotta);
+  box-shadow: 0 20px 40px -20px rgba(58, 27, 18, 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -39,10 +39,10 @@ export default function HowItWorks() {
         <div className="mt-16 grid gap-10 sm:grid-cols-3">
           {steps.map(({ icon: Icon, title, description }, index) => (
             <Reveal key={title} delayMs={index * 120} className="relative text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sage/20">
-                <Icon className="h-7 w-7 text-sage-dark" strokeWidth={1.75} />
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-terracotta/15">
+                <Icon className="h-7 w-7 text-terracotta-dark" strokeWidth={1.75} />
               </div>
-              <span className="mt-4 block font-serif text-sm italic text-terracotta">
+              <span className="mt-4 block font-sans text-xs font-bold uppercase tracking-widest text-terracotta">
                 Paso {index + 1}
               </span>
               <h3 className="mt-1 font-serif text-xl font-semibold text-brown-dark">

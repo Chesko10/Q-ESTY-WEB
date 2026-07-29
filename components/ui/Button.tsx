@@ -4,9 +4,10 @@ const base =
   "inline-flex items-center justify-center rounded-full px-7 py-3.5 font-sans font-semibold transition-all duration-200 ease-out hover:scale-[1.03] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100";
 
 const variants = {
-  primary: "bg-terracotta text-cream hover:bg-terracotta-dark",
+  primary:
+    "bg-terracotta text-cream shadow-[0_8px_24px_-6px_rgba(232,82,58,0.45)] hover:bg-terracotta-dark",
   outline:
-    "border-2 border-brown text-brown hover:bg-brown hover:text-cream",
+    "border border-sand bg-cream text-brown-dark hover:border-terracotta hover:text-terracotta",
 };
 
 type CommonProps = {

@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section className="px-6 py-24">
       <Reveal className="mx-auto max-w-3xl text-center">
-        <span className="font-serif text-sm italic text-terracotta">
+        <span className="font-sans text-xs font-bold uppercase tracking-widest text-terracotta">
           Sobre nosotros
         </span>
         <h2 className="mt-2 font-serif text-4xl font-semibold text-brown-dark text-balance">

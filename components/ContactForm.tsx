@@ -48,7 +48,7 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl bg-sage/15 p-8 text-center">
+      <div className="rounded-2xl border border-confirm/30 bg-confirm/10 p-8 text-center">
         <p className="font-serif text-xl font-semibold text-brown-dark">
           ¡Gracias! Hemos recibido tu solicitud.
         </p>

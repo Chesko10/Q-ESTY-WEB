@@ -12,7 +12,7 @@ export default function Stats() {
       <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-3">
         {stats.map((stat, index) => (
           <Reveal key={stat.value} delayMs={index * 120} className="text-center">
-            <p className="font-serif text-4xl font-semibold italic sm:text-5xl">
+            <p className="font-serif text-4xl font-bold sm:text-5xl">
               {stat.value}
             </p>
             <p className="mt-2 text-sm text-cream/75">{stat.label}</p>

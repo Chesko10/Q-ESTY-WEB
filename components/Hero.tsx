@@ -9,7 +9,7 @@ export default function Hero() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-sage/15 blur-3xl"
+        className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-amber/15 blur-3xl"
       />
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
@@ -21,7 +21,7 @@ export default function Hero() {
         </span>
 
         <h1
-          className="animate-fade-in-up font-serif text-5xl font-semibold italic tracking-tight text-brown-dark text-balance sm:text-6xl"
+          className="animate-fade-in-up font-serif text-5xl font-bold tracking-tight text-brown-dark text-balance sm:text-6xl"
           style={{ animationDelay: "100ms" }}
         >
           Güesty

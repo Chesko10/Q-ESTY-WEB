@@ -14,13 +14,13 @@ const features = [
     icon: CircleHelp,
     title: "Dudas del alojamiento al instante",
     description:
-      "Aire acondicionado, caja fuerte, horarios de piscina y desayuno, normas de la casa, red wifi... Güesty resuelve las preguntas más repetidas al instante y en el idioma del huésped.",
+      "Aire acondicionado, caja fuerte, horarios de piscina y desayuno, normas de la casa, red wifi... Qüesty resuelve las preguntas más repetidas al instante y en el idioma del huésped.",
   },
   {
     icon: Clock,
     title: "Late check-out sin llamadas",
     description:
-      "El huésped pide ampliar su salida desde el chat. Güesty comprueba si hay disponibilidad real antes de confirmar, o propone alternativas si no la hay.",
+      "El huésped pide ampliar su salida desde el chat. Qüesty comprueba si hay disponibilidad real antes de confirmar, o propone alternativas si no la hay.",
   },
   {
     icon: UtensilsCrossed,
@@ -54,7 +54,7 @@ export default function Features() {
       <div className="mx-auto max-w-5xl">
         <SectionHeader
           eyebrow="Funciones"
-          title="Todo lo que Güesty hace por tu alojamiento"
+          title="Todo lo que Qüesty hace por tu alojamiento"
           description="Pensado para el día a día real de un hotel pequeño, un hostal o varios apartamentos turísticos."
         />
 

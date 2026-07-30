@@ -7,7 +7,7 @@ const points = [
     icon: PhoneOff,
     problem: "Llamadas constantes a recepción",
     solution:
-      "Tu equipo deja de repetir las mismas respuestas: Güesty las resuelve al instante.",
+      "Tu equipo deja de repetir las mismas respuestas: Qüesty las resuelve al instante.",
   },
   {
     icon: HelpCircle,
@@ -19,7 +19,7 @@ const points = [
     icon: Languages,
     problem: "La barrera del idioma",
     solution:
-      "Güesty conversa en 6 idiomas, así que nadie se queda sin entender.",
+      "Qüesty conversa en 6 idiomas, así que nadie se queda sin entender.",
   },
   {
     icon: Wrench,
@@ -36,7 +36,7 @@ export default function Problem() {
         <SectionHeader
           eyebrow="El problema"
           title="Los mismos problemas de siempre"
-          description="Cada hotelero conoce estas fricciones. Güesty existe para quitártelas de encima."
+          description="Cada hotelero conoce estas fricciones. Qüesty existe para quitártelas de encima."
         />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2">

@@ -13,17 +13,17 @@ const questions = [
   {
     question: "¿Qué pasa si el bot no sabe responder algo?",
     answer:
-      "Si Güesty detecta que necesita ayuda humana, avisa automáticamente a tu equipo para que lo resuelva; el huésped nunca se queda sin respuesta.",
+      "Si Qüesty detecta que necesita ayuda humana, avisa automáticamente a tu equipo para que lo resuelva; el huésped nunca se queda sin respuesta.",
   },
   {
     question: "¿En qué idiomas funciona?",
     answer:
-      "Güesty detecta el idioma de cada huésped y responde en consecuencia, ideal para alojamientos con huéspedes internacionales.",
+      "Qüesty detecta el idioma de cada huésped y responde en consecuencia, ideal para alojamientos con huéspedes internacionales.",
   },
   {
     question: "¿Necesito un sistema de gestión (PMS) para usarlo?",
     answer:
-      "No. Güesty funciona de forma independiente, sin necesidad de integrarlo con un PMS ni otros sistemas complejos.",
+      "No. Qüesty funciona de forma independiente, sin necesidad de integrarlo con un PMS ni otros sistemas complejos.",
   },
   {
     question: "¿Cómo empiezo?",

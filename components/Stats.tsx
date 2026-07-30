@@ -3,7 +3,7 @@ import Reveal from "./ui/Reveal";
 const stats = [
   { value: "24/7", label: "Disponible para tus huéspedes, sin descanso" },
   { value: "6 idiomas", label: "Conversaciones sin barrera del idioma" },
-  { value: "Minutos", label: "Para poner en marcha Güesty en tu alojamiento" },
+  { value: "Minutos", label: "Para poner en marcha Qüesty en tu alojamiento" },
 ];
 
 export default function Stats() {

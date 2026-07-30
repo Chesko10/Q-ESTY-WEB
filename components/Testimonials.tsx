@@ -7,7 +7,7 @@ const testimonials = [
     name: "Hotel Mirador",
     hotel: "Gerente general",
     quote:
-      "Desde que ponemos el QR de Güesty en las habitaciones, casi no recibimos llamadas preguntando por el wifi o los horarios del desayuno.",
+      "Desde que ponemos el QR de Qüesty en las habitaciones, casi no recibimos llamadas preguntando por el wifi o los horarios del desayuno.",
   },
   {
     name: "Casa Viajera Hostel",
@@ -19,7 +19,7 @@ const testimonials = [
     name: "Posada del Sol",
     hotel: "Directora de operaciones",
     quote:
-      "No tenemos recepción 24 horas, pero desde que usamos Güesty los huéspedes sienten que siempre hay alguien despierto para ayudarlos.",
+      "No tenemos recepción 24 horas, pero desde que usamos Qüesty los huéspedes sienten que siempre hay alguien despierto para ayudarlos.",
   },
 ];
 

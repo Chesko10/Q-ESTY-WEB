@@ -15,9 +15,9 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Güesty — Asistente virtual 24h para huéspedes vía QR",
+  title: "Qüesty — Asistente virtual 24h para huéspedes vía QR",
   description:
-    "Güesty es el asistente virtual que resuelve las dudas de tus huéspedes al instante, escaneando un código QR. Sin llamadas, sin esperas, en 6 idiomas.",
+    "Qüesty es el asistente virtual que resuelve las dudas de tus huéspedes al instante, escaneando un código QR. Sin llamadas, sin esperas, en 6 idiomas.",
 };
 
 export default function RootLayout({

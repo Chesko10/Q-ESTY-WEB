@@ -35,7 +35,7 @@ export default function ExampleChat() {
       <div className="mx-auto max-w-3xl">
         <SectionHeader
           eyebrow="Ejemplo real"
-          title="Así conversa un huésped con Güesty"
+          title="Así conversa un huésped con Qüesty"
           description="Hotel Costa Serena · Águilas, Murcia — hotel de 4 estrellas con 120 habitaciones."
         />
 

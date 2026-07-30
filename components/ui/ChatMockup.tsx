@@ -41,13 +41,13 @@ export default function ChatMockup({
         <div className="flex items-center gap-2.5 border-b border-sand px-4.5 py-3.5">
           <Image
             src="/questy_icon_transparent.png"
-            alt="Güesty"
+            alt="Qüesty"
             width={32}
             height={32}
           />
           <div>
             <div className="text-sm font-bold text-brown-dark">
-              Güesty · Hotel demo
+              Qüesty · Hotel demo
             </div>
             <div className="flex items-center gap-1.5 text-xs text-brown">
               <span className="h-[7px] w-[7px] rounded-full bg-confirm" />

@@ -51,7 +51,7 @@ export default function Hero() {
             className="animate-fade-in-up mt-6 max-w-xl text-lg text-brown sm:text-xl"
             style={{ animationDelay: "200ms" }}
           >
-            Güesty vive en el código QR de cada habitación: tus huéspedes
+            Qüesty vive en el código QR de cada habitación: tus huéspedes
             escanean, preguntan, piden y avisan de incidencias sin descargar{" "}
             <strong className="text-brown-dark">ninguna app</strong> ni
             depender de que haya alguien en recepción.

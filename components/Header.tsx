@@ -21,12 +21,12 @@ export default function Header() {
         <a href="#top" className="flex shrink-0 items-center gap-2.5">
           <Image
             src="/questy_icon_transparent.png"
-            alt="Güesty"
+            alt="Qüesty"
             width={36}
             height={36}
           />
           <span className="hidden font-serif text-xl font-bold text-brown-dark sm:inline">
-            Güesty
+            Qüesty
           </span>
         </a>
 

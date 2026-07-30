@@ -19,7 +19,7 @@ const steps = [
     icon: CheckCircle2,
     title: "Solo lo importante llega al personal",
     description:
-      "Güesty resuelve lo que puede por sí mismo y traslada a recepción o mantenimiento solo lo que de verdad necesita una persona.",
+      "Qüesty resuelve lo que puede por sí mismo y traslada a recepción o mantenimiento solo lo que de verdad necesita una persona.",
   },
 ];
 

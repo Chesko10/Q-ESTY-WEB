@@ -3,7 +3,7 @@ import { Resend } from "resend";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 const TO_EMAIL = "guesty1318@gmail.com";
-const FROM_EMAIL = "Güesty <onboarding@resend.dev>";
+const FROM_EMAIL = "Qüesty <onboarding@resend.dev>";
 
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
@@ -101,14 +101,14 @@ export async function POST(request: Request) {
     const { error: confirmError } = await resend.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: "Hemos recibido tu solicitud — Güesty",
+      subject: "Hemos recibido tu solicitud — Qüesty",
       text: [
         `¡Hola ${name}!`,
         "",
-        `Gracias por tu interés en Güesty para ${hotelName}. Hemos recibido tu solicitud y nuestro equipo se pondrá en contacto contigo muy pronto.`,
+        `Gracias por tu interés en Qüesty para ${hotelName}. Hemos recibido tu solicitud y nuestro equipo se pondrá en contacto contigo muy pronto.`,
         "",
         "Un saludo,",
-        "El equipo de Güesty",
+        "El equipo de Qüesty",
       ].join("\n"),
     });
 

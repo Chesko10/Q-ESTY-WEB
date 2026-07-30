@@ -9,7 +9,7 @@ export default function Contact() {
         <Reveal className="text-center">
           <Image
             src="/questy_icon_transparent.png"
-            alt="Güesty"
+            alt="Qüesty"
             width={56}
             height={56}
             className="mx-auto mb-4"
@@ -18,10 +18,10 @@ export default function Contact() {
             Empieza hoy
           </span>
           <h2 className="mt-2 font-serif text-4xl font-semibold text-brown-dark text-balance">
-            Solicita una demo de Güesty
+            Solicita una demo de Qüesty
           </h2>
           <p className="mt-4 text-lg text-brown">
-            Cuéntanos sobre tu alojamiento y te mostramos cómo Güesty puede
+            Cuéntanos sobre tu alojamiento y te mostramos cómo Qüesty puede
             cuidar de tus huéspedes.
           </p>
         </Reveal>

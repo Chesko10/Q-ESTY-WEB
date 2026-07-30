@@ -16,13 +16,13 @@ export default function Footer() {
         <div className="flex items-center gap-2.5 text-center text-sm text-brown sm:text-left">
           <Image
             src="/questy_icon_transparent.png"
-            alt="Güesty"
+            alt="Qüesty"
             width={28}
             height={28}
           />
           <span>
             <span className="block">
-              © {year} Güesty. Todos los derechos reservados.
+              © {year} Qüesty. Todos los derechos reservados.
             </span>
             <span className="block text-xs text-brown/85">
               Tu anfitrión virtual, siempre despierto.

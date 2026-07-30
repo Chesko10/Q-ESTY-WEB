@@ -39,7 +39,7 @@ export default function WhyUs() {
     <section id="why" className="scroll-mt-24 border-y border-sand bg-cream-dark px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <SectionHeader
-          eyebrow="Por qué Güesty"
+          eyebrow="Por qué Qüesty"
           title='La alternativa a "no hay nadie en recepción"'
         />
 

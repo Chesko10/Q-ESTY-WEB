@@ -25,7 +25,7 @@ const audiences = [
     icon: Landmark,
     title: "Cadenas y alojamientos independientes",
     description:
-      "Tanto si gestionas un único alojamiento como una cadena con varias propiedades, Güesty se adapta a tu forma de trabajar.",
+      "Tanto si gestionas un único alojamiento como una cadena con varias propiedades, Qüesty se adapta a tu forma de trabajar.",
   },
 ];
 
@@ -36,7 +36,7 @@ export default function ForWhom() {
         <SectionHeader
           eyebrow="Para quién es"
           title="Pensado para cualquier tipo de alojamiento"
-          description="Desde un hostal con encanto hasta una cadena hotelera con varias propiedades — Güesty se adapta a la forma de trabajar de tu equipo."
+          description="Desde un hostal con encanto hasta una cadena hotelera con varias propiedades — Qüesty se adapta a la forma de trabajar de tu equipo."
         />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 const TO_EMAIL = "guesty1318@gmail.com";
+const FROM_EMAIL = "Güesty <onboarding@resend.dev>";
 
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
@@ -46,7 +48,7 @@ export async function POST(request: Request) {
 
   try {
     const { error } = await resend.emails.send({
-      from: "Güesty <onboarding@resend.dev>",
+      from: FROM_EMAIL,
       to: TO_EMAIL,
       replyTo: email,
       subject: `Nueva solicitud de demo — ${hotelName}`,
@@ -65,8 +67,6 @@ export async function POST(request: Request) {
         { status: 502 }
       );
     }
-
-    return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Error inesperado enviando email:", error);
     return NextResponse.json(
@@ -74,4 +74,53 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
+
+  // A partir de aquí, la solicitud ya quedó notificada por email.
+  // El guardado en Supabase y el email de confirmación al cliente son
+  // "best effort": si fallan, no deben impedir que el usuario vea éxito.
+
+  const supabase = getSupabaseAdmin();
+  if (supabase) {
+    const { error: dbError } = await supabase.from("demo_requests").insert({
+      name,
+      email,
+      hotel_name: hotelName,
+      message: safeMessage,
+    });
+
+    if (dbError) {
+      console.error("Error guardando la solicitud en Supabase:", dbError);
+    }
+  } else {
+    console.warn(
+      "Supabase no está configurado (SUPABASE_URL / SUPABASE_SECRET_KEY); no se guardó la solicitud."
+    );
+  }
+
+  try {
+    const { error: confirmError } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: email,
+      subject: "Hemos recibido tu solicitud — Güesty",
+      text: [
+        `¡Hola ${name}!`,
+        "",
+        `Gracias por tu interés en Güesty para ${hotelName}. Hemos recibido tu solicitud y nuestro equipo se pondrá en contacto contigo muy pronto.`,
+        "",
+        "Un saludo,",
+        "El equipo de Güesty",
+      ].join("\n"),
+    });
+
+    if (confirmError) {
+      console.error(
+        "Error enviando email de confirmación al cliente:",
+        confirmError
+      );
+    }
+  } catch (error) {
+    console.error("Error inesperado enviando confirmación al cliente:", error);
+  }
+
+  return NextResponse.json({ ok: true });
 }

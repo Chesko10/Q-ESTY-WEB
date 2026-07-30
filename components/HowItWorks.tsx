@@ -7,30 +7,30 @@ const steps = [
     icon: QrCode,
     title: "Escanea el QR",
     description:
-      "El huésped escanea el código QR disponible en su habitación o en zonas comunes.",
+      "El huésped escanea el código QR de su habitación con la cámara del móvil, sin instalar nada.",
   },
   {
     icon: MessageCircle,
-    title: "Habla con Güesty",
+    title: "Pregunta, pide o avisa",
     description:
-      "Se abre una conversación instantánea, sin descargar ninguna app ni crear cuentas.",
+      "Desde el chat resuelve dudas, pide al restaurante, solicita un late check-out o avisa de una incidencia.",
   },
   {
     icon: CheckCircle2,
-    title: "Resuelve al instante",
+    title: "Solo lo importante llega al personal",
     description:
-      "Recibe la respuesta o gestiona su incidencia al momento, a cualquier hora del día.",
+      "Güesty resuelve lo que puede por sí mismo y traslada a recepción o mantenimiento solo lo que de verdad necesita una persona.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="px-6 py-24">
+    <section id="how" className="scroll-mt-24 px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <SectionHeader
-          eyebrow="Cómo funciona"
-          title="Así de simple funciona"
-          description="Ninguna curva de aprendizaje, ni para tu equipo ni para tus huéspedes."
+          eyebrow="Proceso"
+          title="Cómo funciona"
+          description="De escanear el QR a resolver la duda, en segundos."
         />
 
         <div className="mt-16 grid gap-10 sm:grid-cols-3">

@@ -2,15 +2,25 @@ import Button from "./ui/Button";
 import ChatMockup from "./ui/ChatMockup";
 
 const heroMessages = [
-  { from: "guest" as const, text: "¿Hasta qué hora sirven el desayuno?" },
-  { from: "bot" as const, text: "El desayuno es de 7:30 a 10:30 en la planta baja 🥐" },
-  { from: "guest" as const, text: "El aire acondicionado de mi habitación no funciona" },
-  { from: "bot" as const, text: "Aviso enviado a mantenimiento", confirm: true },
+  { from: "guest" as const, text: "¿Cuál es la contraseña del wifi?" },
+  {
+    from: "bot" as const,
+    text: "¡Claro! Red: Guesty_Guest — Contraseña: Bienvenido2024. ¿Necesitas algo más?",
+  },
+  { from: "guest" as const, text: "¿Podrían darme un late check-out?" },
+  {
+    from: "bot" as const,
+    text: "Late check-out confirmado — salida 14:00, sin cargo",
+    confirm: true,
+  },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-cream px-6 pt-28 pb-24 sm:pt-36 sm:pb-32">
+    <section
+      id="top"
+      className="relative overflow-hidden bg-gradient-to-b from-peach to-cream to-60% px-6 pt-28 pb-24 sm:pt-36 sm:pb-32"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-terracotta/10 blur-3xl"
@@ -26,33 +36,52 @@ export default function Hero() {
             className="animate-fade-in-up mb-6 rounded-full border border-brown/20 bg-cream-dark px-4 py-1.5 text-sm font-medium text-brown"
             style={{ animationDelay: "0ms" }}
           >
-            Para hoteles y hostales
+            Anfitrión virtual 24h
           </span>
 
           <h1
             className="animate-fade-in-up font-serif text-5xl font-bold tracking-tight text-brown-dark text-balance sm:text-6xl"
             style={{ animationDelay: "100ms" }}
           >
-            Güesty
+            Tu anfitrión virtual,{" "}
+            <span className="text-terracotta">siempre despierto.</span>
           </h1>
 
           <p
             className="animate-fade-in-up mt-6 max-w-xl text-lg text-brown sm:text-xl"
             style={{ animationDelay: "200ms" }}
           >
-            El asistente virtual que atiende a tus huéspedes las 24 horas,
-            escaneando un simple código QR desde su habitación. Sin llamadas a
-            recepción, sin esperas, sin descargas.
+            Güesty vive en el código QR de cada habitación: tus huéspedes
+            escanean, preguntan, piden y avisan de incidencias sin descargar{" "}
+            <strong className="text-brown-dark">ninguna app</strong> ni
+            depender de que haya alguien en recepción.
           </p>
 
           <div
-            className="animate-fade-in-up mt-10"
+            className="animate-fade-in-up mt-10 flex flex-wrap justify-center gap-4 lg:justify-start"
             style={{ animationDelay: "320ms" }}
           >
-            <Button href="#contacto" className="btn-pulse">
-              Solicitar demo
+            <Button href="#demo" className="btn-pulse">
+              Solicitar una demo
+              <span aria-hidden className="ml-1.5">
+                →
+              </span>
+            </Button>
+            <Button href="#features" variant="outline">
+              <span aria-hidden className="mr-1.5 text-terracotta">
+                ▶
+              </span>
+              Ver funciones
             </Button>
           </div>
+
+          <p
+            className="animate-fade-in-up mt-6 text-sm text-brown"
+            style={{ animationDelay: "380ms" }}
+          >
+            <strong className="text-brown-dark">Sin apps</strong> — accede
+            escaneando el QR de la habitación
+          </p>
         </div>
 
         <div
@@ -62,7 +91,8 @@ export default function Hero() {
           <ChatMockup
             messages={heroMessages}
             animated
-            floatLabel="Respuesta al instante"
+            showTyping
+            floatLabel="Respuesta instantánea"
           />
         </div>
       </div>

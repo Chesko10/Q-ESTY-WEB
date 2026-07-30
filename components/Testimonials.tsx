@@ -2,42 +2,40 @@ import { Star } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import SectionHeader from "./ui/SectionHeader";
 
-// Contenido de ejemplo — sustituir por testimonios reales de clientes.
 const testimonials = [
   {
-    name: "Marta Alonso",
-    hotel: "Hostal Puerta del Sol",
+    name: "Hotel Mirador",
+    hotel: "Gerente general",
     quote:
-      "Desde que instalamos Güesty, las llamadas a recepción por la noche casi han desaparecido. Nuestros huéspedes lo adoran.",
+      "Desde que ponemos el QR de Güesty en las habitaciones, casi no recibimos llamadas preguntando por el wifi o los horarios del desayuno.",
   },
   {
-    name: "Javier Moreno",
-    hotel: "Hotel Rincón del Bosque",
+    name: "Casa Viajera Hostel",
+    hotel: "Fundadora",
     quote:
-      "Lo que más valoramos es el soporte multi-idioma: ya no perdemos tiempo explicando lo mismo en tres idiomas distintos.",
+      "Nuestros huéspedes piden toallas o avisan de una avería directo desde el chat, y mantenimiento lo recibe al instante.",
   },
   {
-    name: "Laura Fernández",
-    hotel: "Hostal Casa Vieja",
+    name: "Posada del Sol",
+    hotel: "Directora de operaciones",
     quote:
-      "La configuración fue cuestión de minutos y el equipo empezó a usarlo sin ninguna formación. Una pasada.",
+      "No tenemos recepción 24 horas, pero desde que usamos Güesty los huéspedes sienten que siempre hay alguien despierto para ayudarlos.",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="px-6 py-24">
+    <section id="testimonials" className="scroll-mt-24 px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <SectionHeader
           eyebrow="Testimonios"
-          title="Lo que dicen otros hoteleros"
-          description="Historias reales de equipos que ya han incorporado Güesty a su día a día."
+          title="Alojamientos que ya duermen tranquilos"
         />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <Reveal key={testimonial.name} delayMs={index * 120}>
-              <figure className="card-elevate flex h-full flex-col rounded-2xl bg-cream-dark p-7">
+              <figure className="card-elevate flex h-full flex-col rounded-[14px] bg-white p-7">
                 <div className="flex gap-0.5 text-amber" aria-hidden>
                   {Array.from({ length: 5 }).map((_, starIndex) => (
                     <Star

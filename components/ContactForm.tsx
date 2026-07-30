@@ -70,7 +70,7 @@ export default function ContactForm() {
           name="name"
           type="text"
           required
-          className="rounded-xl border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
           placeholder="Tu nombre"
         />
       </div>
@@ -84,7 +84,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="rounded-xl border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
           placeholder="tu@email.com"
         />
       </div>
@@ -101,7 +101,7 @@ export default function ContactForm() {
           name="hotelName"
           type="text"
           required
-          className="rounded-xl border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
           placeholder="Hostal Los Almendros"
         />
       </div>
@@ -117,7 +117,7 @@ export default function ContactForm() {
           id="message"
           name="message"
           rows={4}
-          className="rounded-xl border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
           placeholder="Cuéntanos un poco sobre tu alojamiento..."
         />
       </div>

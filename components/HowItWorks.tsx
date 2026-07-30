@@ -1,5 +1,6 @@
 import { QrCode, MessageCircle, CheckCircle2 } from "lucide-react";
 import Reveal from "./ui/Reveal";
+import SectionHeader from "./ui/SectionHeader";
 
 const steps = [
   {
@@ -26,15 +27,11 @@ export default function HowItWorks() {
   return (
     <section className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-4xl font-semibold text-brown-dark text-balance">
-            Así de simple funciona
-          </h2>
-          <p className="mt-4 text-lg text-brown">
-            Ninguna curva de aprendizaje, ni para tu equipo ni para tus
-            huéspedes.
-          </p>
-        </Reveal>
+        <SectionHeader
+          eyebrow="Cómo funciona"
+          title="Así de simple funciona"
+          description="Ninguna curva de aprendizaje, ni para tu equipo ni para tus huéspedes."
+        />
 
         <div className="mt-16 grid gap-10 sm:grid-cols-3">
           {steps.map(({ icon: Icon, title, description }, index) => (

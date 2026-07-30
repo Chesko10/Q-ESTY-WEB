@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import Reveal from "./ui/Reveal";
+import SectionHeader from "./ui/SectionHeader";
 
 // Contenido de ejemplo — sustituir por testimonios reales de clientes.
 const testimonials = [
@@ -27,15 +28,11 @@ export default function Testimonials() {
   return (
     <section className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-4xl font-semibold text-brown-dark text-balance">
-            Lo que dicen otros hoteleros
-          </h2>
-          <p className="mt-4 text-lg text-brown">
-            Historias reales de equipos que ya han incorporado Güesty a su
-            día a día.
-          </p>
-        </Reveal>
+        <SectionHeader
+          eyebrow="Testimonios"
+          title="Lo que dicen otros hoteleros"
+          description="Historias reales de equipos que ya han incorporado Güesty a su día a día."
+        />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-3">
           {testimonials.map((testimonial, index) => (

@@ -1,5 +1,6 @@
 import { Wifi, MapPin, Bell, Languages, Clock } from "lucide-react";
 import Reveal from "./ui/Reveal";
+import SectionHeader from "./ui/SectionHeader";
 
 const features = [
   {
@@ -38,14 +39,11 @@ export default function Features() {
   return (
     <section className="bg-cream-dark px-6 py-24">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-4xl font-semibold text-brown-dark text-balance">
-            Todo lo que necesita tu huésped
-          </h2>
-          <p className="mt-4 text-lg text-brown">
-            En una sola conversación, sin apps ni menús complicados.
-          </p>
-        </Reveal>
+        <SectionHeader
+          eyebrow="Funcionalidades"
+          title="Todo lo que necesita tu huésped"
+          description="En una sola conversación, sin apps ni menús complicados."
+        />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map(({ icon: Icon, title, description }, index) => (

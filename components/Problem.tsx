@@ -1,5 +1,6 @@
 import { PhoneOff, HelpCircle, Languages, Wrench } from "lucide-react";
 import Reveal from "./ui/Reveal";
+import SectionHeader from "./ui/SectionHeader";
 
 const points = [
   {
@@ -32,15 +33,11 @@ export default function Problem() {
   return (
     <section className="bg-cream-dark px-6 py-24">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-4xl font-semibold text-brown-dark text-balance">
-            Los mismos problemas de siempre
-          </h2>
-          <p className="mt-4 text-lg text-brown">
-            Cada hotelero conoce estas fricciones. Güesty existe para
-            quitártelas de encima.
-          </p>
-        </Reveal>
+        <SectionHeader
+          eyebrow="El problema"
+          title="Los mismos problemas de siempre"
+          description="Cada hotelero conoce estas fricciones. Güesty existe para quitártelas de encima."
+        />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2">
           {points.map(({ icon: Icon, problem, solution }, index) => (

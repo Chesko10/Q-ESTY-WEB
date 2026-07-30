@@ -94,6 +94,31 @@ body {
   box-shadow: 0 20px 40px -20px rgba(58, 27, 18, 0.45);
 }
 
+/* Gentle float used by the Hero chat mockup */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Typing indicator dots inside ChatMockup */
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -110,5 +135,10 @@ body {
   .card-elevate:hover {
     transform: none;
     transition: none;
+  }
+
+  [class*="animate-[float"],
+  [class*="animate-[typing-bounce"] {
+    animation: none;
   }
 }

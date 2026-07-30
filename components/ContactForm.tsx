@@ -20,6 +20,8 @@ export default function ContactForm() {
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       hotelName: (form.elements.namedItem("hotelName") as HTMLInputElement)
         .value,
+      telefono: (form.elements.namedItem("telefono") as HTMLInputElement)
+        .value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement)
         .value,
     };
@@ -103,6 +105,22 @@ export default function ContactForm() {
           required
           className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
           placeholder="Hostal Los Almendros"
+        />
+      </div>
+
+      <div className="grid gap-2">
+        <label
+          htmlFor="telefono"
+          className="text-sm font-medium text-brown-dark"
+        >
+          Teléfono
+        </label>
+        <input
+          id="telefono"
+          name="telefono"
+          type="tel"
+          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          placeholder="Opcional"
         />
       </div>
 

@@ -25,7 +25,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, hotelName, message } = body as Record<string, unknown>;
+  const { name, email, hotelName, telefono, message } = body as Record<
+    string,
+    unknown
+  >;
 
   if (
     typeof name !== "string" ||
@@ -43,6 +46,8 @@ export async function POST(request: Request) {
 
   const safeMessage =
     typeof message === "string" && message.trim() ? message.trim() : null;
+  const safeTelefono =
+    typeof telefono === "string" && telefono.trim() ? telefono.trim() : null;
 
   const resend = new Resend(apiKey);
 
@@ -56,6 +61,7 @@ export async function POST(request: Request) {
         `Nombre: ${name}`,
         `Email: ${email}`,
         `Hotel/Hostal: ${hotelName}`,
+        `Teléfono: ${safeTelefono ?? "no indicado"}`,
         `Mensaje: ${safeMessage ?? "(sin mensaje)"}`,
       ].join("\n"),
     });
@@ -85,6 +91,7 @@ export async function POST(request: Request) {
       name,
       email,
       hotel_name: hotelName,
+      telefono: safeTelefono,
       message: safeMessage,
     });
 

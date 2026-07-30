@@ -8,3 +8,6 @@ create table if not exists public.demo_requests (
 );
 
 alter table public.demo_requests enable row level security;
+
+alter table public.demo_requests
+  add column if not exists telefono text;

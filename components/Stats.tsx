@@ -9,7 +9,7 @@ import SectionHeader from "./ui/SectionHeader";
  */
 const stats = [
   {
-    value: 200,
+    value: 150,
     prefix: "+",
     suffix: "",
     lead: "",
@@ -18,7 +18,7 @@ const stats = [
     estimate: true,
   },
   {
-    value: 10,
+    value: 20,
     prefix: "",
     suffix: " h",
     lead: "Hasta",
@@ -27,17 +27,17 @@ const stats = [
     estimate: true,
   },
   {
-    value: 6,
-    prefix: "",
+    value: 50,
+    prefix: "+",
     suffix: "",
     lead: "",
-    label: "idiomas, a cualquier hora del día",
+    label: "recomendaciones locales conectadas a Google Maps",
     highlight: false,
     estimate: false,
   },
 ];
 
-const footnote = "Estimación para un alojamiento de 60 camas.";
+const footnote = "";
 
 export default function Stats() {
   return (

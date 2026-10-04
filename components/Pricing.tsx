@@ -6,7 +6,7 @@ import Button from "./ui/Button";
 const included = [
   "Configuración inicial con la información de tu alojamiento",
   "Respuestas adaptadas al tono y estilo de tu marca",
-  "Tarjetas QR listas para colocar en las habitaciones",
+  "Instalación incluida: colocamos los soportes con QR en cada habitación",
   "Actualización de contenidos cuando cambien horarios, precios o eventos",
   "Panel con estadísticas de uso",
   "Soporte directo",

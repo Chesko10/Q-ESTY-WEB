@@ -1,30 +1,60 @@
 import Image from "next/image";
 import Button from "./ui/Button";
-import phoneLanguages from "@/public/images/movil-idiomas.jpg";
+import RotatingWords from "./ui/RotatingWords";
+import heroPhoto from "@/public/images/hero.png";
 
+/** Hero: foto de la tarjeta QR fundida con el fondo oscuro y titular con giro 3D. */
 export default function Hero() {
   return (
-    <section id="top" className="mesh-light relative overflow-hidden">
-      <div className="container-page grid items-center gap-16 pt-32 pb-24 sm:pt-40 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:pt-44 lg:pb-32">
-        <div className="flex flex-col items-start">
+    <section
+      id="top"
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-night"
+    >
+      {/* La foto es vertical: en escritorio ocupa la mitad derecha y se funde
+          con el fondo para no ampliarla de más; en móvil cubre toda la pantalla. */}
+      <div className="absolute inset-0 -z-20 lg:left-auto lg:w-[60%]">
+        <Image
+          src={heroPhoto}
+          alt=""
+          placeholder="blur"
+          preload
+          quality={90}
+          fill
+          sizes="(min-width: 1024px) 60vw, 100vw"
+          className="object-cover object-[50%_40%] max-lg:scale-105 max-lg:blur-[3px]"
+        />
+      </div>
+      {/* Capa oscura para el contraste del texto blanco */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(20_9_12/0.82)_0%,rgb(20_9_12/0.86)_55%,rgb(20_9_12/0.94)_100%)] lg:bg-[linear-gradient(90deg,var(--color-night)_0%,var(--color-night)_40%,rgb(20_9_12/0.6)_55%,rgb(20_9_12/0.15)_80%,rgb(20_9_12/0.05)_100%)]"
+      />
+
+      <div className="container-page pt-32 pb-20 sm:pt-40 lg:pt-36 lg:pb-24">
+        <div className="flex max-w-[40rem] flex-col items-start">
           <span
-            className="animate-fade-in-up inline-flex items-center gap-2 rounded-control bg-white px-3 py-2 text-[0.8125rem] font-medium text-ink-muted shadow-[inset_0_0_0_1px_var(--color-line)]"
+            className="animate-fade-in-up inline-flex items-center gap-2 rounded-control bg-white/10 px-3 py-2 text-[0.8125rem] font-medium text-white/90 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.18)] backdrop-blur-md"
             style={{ animationDelay: "0ms" }}
           >
-            <span className="h-[7px] w-[7px] rounded-full bg-ok shadow-[0_0_0_3px_rgb(34_197_94/0.18)]" />
+            <span className="h-[7px] w-[7px] rounded-full bg-ok shadow-[0_0_0_3px_rgb(34_197_94/0.22)]" />
             Activo 24 h · sin apps
           </span>
 
           <h1
-            className="animate-fade-in-up text-display mt-7 text-ink"
+            className="animate-fade-in-up text-display mt-7 text-white"
             style={{ animationDelay: "90ms" }}
           >
             Tu anfitrión virtual,{" "}
-            <span className="text-brand">siempre despierto.</span>
+            <span className="text-brand">
+              siempre{" "}
+              <RotatingWords
+                words={["despierto.", "a su lado.", "en su idioma."]}
+              />
+            </span>
           </h1>
 
           <p
-            className="animate-fade-in-up text-lead mt-7 max-w-[34rem] text-ink-muted"
+            className="animate-fade-in-up text-lead mt-7 max-w-[34rem] text-white/85"
             style={{ animationDelay: "180ms" }}
           >
             Tus huéspedes escanean el QR de la habitación y resuelven sus
@@ -38,36 +68,9 @@ export default function Hero() {
             <Button href="#demo" arrow>
               Solicitar demo
             </Button>
-            <Button href="#how" variant="secondary">
+            <Button href="#how" variant="ghostDark">
               Cómo funciona
             </Button>
-          </div>
-        </div>
-
-        <div
-          className="animate-fade-in-up relative mx-auto w-full max-w-[360px] lg:max-w-[400px]"
-          style={{ animationDelay: "200ms" }}
-        >
-          <div className="animate-float">
-            <Image
-              src={phoneLanguages}
-              alt="Un huésped sostiene su móvil con la pantalla de Qüesty de The Cathedral Hostel para elegir idioma: español, inglés, francés, alemán, italiano y portugués."
-              placeholder="blur"
-              preload
-              sizes="(min-width: 1024px) 400px, 360px"
-              className="h-auto w-full rounded-card shadow-float"
-            />
-          </div>
-
-          <div className="absolute top-[16%] -left-3 flex items-center gap-2 rounded-inner bg-white/90 px-4 py-3 text-[0.8125rem] font-semibold text-ink shadow-medium backdrop-blur-md sm:-left-10">
-            <span className="font-display text-lg leading-none font-bold text-brand">
-              6
-            </span>
-            idiomas
-          </div>
-          <div className="absolute -right-3 bottom-[14%] flex items-center gap-2 rounded-inner bg-white/90 px-4 py-3 text-[0.8125rem] font-semibold text-ink shadow-medium backdrop-blur-md sm:-right-8">
-            <span className="h-[7px] w-[7px] rounded-full bg-ok" />
-            Sin descargar apps
           </div>
         </div>
       </div>

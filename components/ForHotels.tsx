@@ -38,9 +38,9 @@ export default function ForHotels() {
     <section id="hotels" className="section-y scroll-mt-20">
       <div className="container-page">
         <SectionHeader
-          eyebrow="Para hoteles"
-          title="Sabrás cuánto trabajo le quita a tu recepción."
-          description="Cada mes ves qué preguntan tus huéspedes y cuántas consultas se resuelven sin llegar al mostrador."
+          eyebrow="Para anfitriones"
+          title="Sabrás cuánto trabajo te quita Qüesty."
+          description="Cada mes ves qué preguntan tus huéspedes y cuántas consultas se resuelven sin que nadie tenga que atenderlas."
         />
 
         <Reveal delayMs={100} className="mt-16 lg:mt-20">

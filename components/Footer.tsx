@@ -3,12 +3,12 @@ import Image from "next/image";
 const productLinks = [
   { href: "#how", label: "Cómo funciona" },
   { href: "#features", label: "Funciones" },
-  { href: "#hotels", label: "Para hoteles" },
+  { href: "#hotels", label: "Para anfitriones" },
   { href: "#pricing", label: "Precios" },
   { href: "#faq", label: "FAQ" },
 ];
 
-const contactEmail = "guesty1318@gmail.com";
+const contactEmail = "questyspain@gmail.com";
 
 export default function Footer() {
   const year = new Date().getFullYear();

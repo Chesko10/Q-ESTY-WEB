@@ -6,8 +6,6 @@ const base =
 const variants = {
   primary:
     "bg-brand text-white shadow-brand hover:bg-brand-dark hover:shadow-[0_10px_24px_-8px_rgb(227_23_62/0.6)]",
-  secondary:
-    "bg-white text-ink shadow-[inset_0_0_0_1px_var(--color-line),var(--shadow-soft)] hover:shadow-[inset_0_0_0_1px_var(--color-blush-300),var(--shadow-medium)]",
   onDark:
     "bg-white text-night hover:bg-blush-50 focus-visible:outline-white",
   ghostDark:

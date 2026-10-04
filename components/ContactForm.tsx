@@ -100,7 +100,7 @@ export default function ContactForm() {
           htmlFor="hotelName"
           className="text-sm font-medium text-ink"
         >
-          Nombre del hotel/hostal
+          Nombre del alojamiento
         </label>
         <input
           id="hotelName"
@@ -108,7 +108,7 @@ export default function ContactForm() {
           type="text"
           required
           className="rounded-control border border-line bg-white px-4 py-3 text-[0.9375rem] text-ink placeholder:text-ink-subtle/70 transition-[border-color,box-shadow] duration-200 focus:border-brand focus:shadow-[0_0_0_4px_rgb(227_23_62/0.14)] focus:outline-none"
-          placeholder="Hostal Los Almendros"
+          placeholder="Hostal Los Almendros, Apartamentos Centro..."
         />
       </div>
 

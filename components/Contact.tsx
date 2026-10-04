@@ -6,6 +6,7 @@ const reassurances = [
   "Te contactamos en breve",
   "Demo con la información de tu alojamiento",
   "Sin compromiso",
+  "Sin permanencia",
 ];
 
 export default function Contact() {

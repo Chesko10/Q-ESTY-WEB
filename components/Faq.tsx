@@ -7,9 +7,9 @@ import SectionHeader from "./ui/SectionHeader";
 
 const questions = [
   {
-    question: "¿Necesito instalar algo en el hotel?",
+    question: "¿Necesito instalar algo en mi alojamiento?",
     answer:
-      "No hace falta ningún sistema nuevo: solo colocas un código QR (te lo enviamos listo para imprimir) en cada habitación.",
+      "No tienes que hacer nada. Vamos a tu alojamiento y colocamos nosotros mismos los soportes con el código QR en cada habitación, listos para que tus huéspedes empiecen a usarlo. En la Región de Murcia la instalación es presencial; si estás en otra zona, escríbenos y lo vemos.",
   },
   {
     question: "¿Qué pasa si el bot no sabe responder algo?",

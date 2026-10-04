@@ -118,28 +118,11 @@ body {
   line-height: 1.55;
 }
 
-/* Soft mesh gradients for the hero and the dark section */
-.mesh-light {
-  background:
-    radial-gradient(42% 55% at 85% 18%, rgb(227 23 62 / 0.14), transparent 70%),
-    radial-gradient(38% 50% at 72% 88%, rgb(244 169 163 / 0.42), transparent 70%),
-    radial-gradient(50% 60% at 8% 0%, var(--color-blush-50), transparent 70%),
-    #ffffff;
-}
-
+/* Soft mesh gradients for the dark sections */
 .mesh-dark {
   background:
     radial-gradient(45% 70% at 12% 0%, rgb(92 14 30 / 0.95), transparent 70%),
     radial-gradient(35% 60% at 95% 100%, rgb(227 23 62 / 0.32), transparent 70%),
-    var(--color-night);
-}
-
-/* Hero B (prueba): night con degradado hacia maroon y un toque de rojo de marca */
-.mesh-hero-dark {
-  background:
-    radial-gradient(55% 70% at 88% 20%, rgb(92 14 30 / 0.9), transparent 72%),
-    radial-gradient(40% 55% at 70% 100%, rgb(227 23 62 / 0.28), transparent 70%),
-    radial-gradient(45% 60% at 0% 0%, rgb(92 14 30 / 0.45), transparent 70%),
     var(--color-night);
 }
 
@@ -192,21 +175,6 @@ body {
   animation: fade-in-up 0.8s var(--ease-out-soft) both;
 }
 
-/* Gentle float for the hero photo and its badges */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -218,8 +186,7 @@ body {
     transition: none;
   }
 
-  .animate-fade-in-up,
-  .animate-float {
+  .animate-fade-in-up {
     animation: none;
   }
 

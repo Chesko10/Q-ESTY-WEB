@@ -8,32 +8,12 @@ import Button from "./ui/Button";
 const navLinks = [
   { href: "#how", label: "Cómo funciona" },
   { href: "#features", label: "Funciones" },
-  { href: "#hotels", label: "Para hoteles" },
+  { href: "#hotels", label: "Para anfitriones" },
   { href: "#pricing", label: "Precios" },
   { href: "#faq", label: "FAQ" },
 ];
 
-const tones = {
-  light: {
-    glass:
-      "bg-white/75 shadow-[inset_0_0_0_1px_rgb(237_230_228/0.9),var(--shadow-soft)] backdrop-blur-xl backdrop-saturate-150",
-    brand: "text-ink",
-    link: "text-ink-muted hover:text-ink focus-visible:text-ink",
-    icon: "text-ink",
-    mobileLink: "border-line text-ink",
-  },
-  dark: {
-    glass:
-      "bg-night/75 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.08),0_8px_24px_-12px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150",
-    brand: "text-white",
-    link: "text-on-dark-muted hover:text-white focus-visible:text-white",
-    icon: "text-white",
-    mobileLink: "border-white/10 text-white",
-  },
-};
-
-export default function Header({ tone = "light" }: { tone?: keyof typeof tones }) {
-  const t = tones[tone];
+export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -50,7 +30,9 @@ export default function Header({ tone = "light" }: { tone?: keyof typeof tones }
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
       <div
         className={`mx-auto max-w-[1200px] rounded-inner transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out-soft ${
-          glass ? t.glass : "bg-transparent"
+          glass
+            ? "bg-night/75 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.08),0_8px_24px_-12px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150"
+            : "bg-transparent"
         }`}
       >
         <div className="flex items-center gap-8 px-4 py-3 sm:px-5">
@@ -64,7 +46,7 @@ export default function Header({ tone = "light" }: { tone?: keyof typeof tones }
               width={34}
               height={34}
             />
-            <span className={`font-display text-xl font-bold tracking-[-0.02em] ${t.brand}`}>
+            <span className="font-display text-xl font-bold tracking-[-0.02em] text-white">
               Qüesty
             </span>
           </a>
@@ -74,7 +56,7 @@ export default function Header({ tone = "light" }: { tone?: keyof typeof tones }
               <a
                 key={link.href}
                 href={link.href}
-                className={`whitespace-nowrap text-[0.9375rem] transition-colors focus-visible:outline-none ${t.link}`}
+                className="whitespace-nowrap text-[0.9375rem] text-on-dark-muted transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
               >
                 {link.label}
               </a>
@@ -93,7 +75,7 @@ export default function Header({ tone = "light" }: { tone?: keyof typeof tones }
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((value) => !value)}
-            className={`ml-auto flex h-10 w-10 items-center justify-center rounded-control focus-visible:outline-2 focus-visible:outline-brand lg:hidden ${t.icon}`}
+            className="ml-auto flex h-10 w-10 items-center justify-center rounded-control text-white focus-visible:outline-2 focus-visible:outline-brand lg:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -113,7 +95,7 @@ export default function Header({ tone = "light" }: { tone?: keyof typeof tones }
                   href={link.href}
                   tabIndex={open ? 0 : -1}
                   onClick={() => setOpen(false)}
-                  className={`border-b py-3.5 ${t.mobileLink}`}
+                  className="border-b border-white/10 py-3.5 text-white"
                 >
                   {link.label}
                 </a>

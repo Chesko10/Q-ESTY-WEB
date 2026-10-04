@@ -137,7 +137,7 @@ export default function Features() {
               </div>
               <ul className="flex flex-col gap-2 sm:w-[46%]" aria-hidden>
                 {[
-                  { name: "Cocina murciana", meta: "€€ · 5 min a pie" },
+                  { name: "Cocina local", meta: "€€ · 5 min a pie" },
                   { name: "Museo y casco antiguo", meta: "10 min a pie" },
                   { name: "Terrazas de noche", meta: "€ · 8 min a pie" },
                 ].map((item) => (
@@ -162,7 +162,7 @@ export default function Features() {
               <Icon icon={CalendarDays} />
               <h3 className="text-h3 mt-6 text-[1.25rem] text-ink">Eventos de la ciudad</h3>
               <p className="mt-2 text-[0.9375rem] text-ink-muted">
-                Los planes destacados de esos días, como la Feria de Murcia.
+                Los planes del momento en tu ciudad: fiestas locales, conciertos, ferias y eventos de temporada.
               </p>
             </div>
           </Reveal>

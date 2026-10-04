@@ -4,23 +4,39 @@ type SectionHeaderProps = {
   eyebrow: string;
   title: string;
   description?: string;
+  align?: "center" | "left";
+  tone?: "light" | "dark";
+  id?: string;
 };
 
 export default function SectionHeader({
   eyebrow,
   title,
   description,
+  align = "center",
+  tone = "light",
+  id,
 }: SectionHeaderProps) {
+  const alignClass =
+    align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl";
+  const dark = tone === "dark";
+
   return (
-    <Reveal className="mx-auto max-w-2xl text-center">
-      <span className="font-sans text-xs font-bold uppercase tracking-widest text-terracotta">
+    <Reveal className={alignClass}>
+      <span className={`text-eyebrow ${dark ? "text-brand-bright" : "text-brand"}`}>
         {eyebrow}
       </span>
-      <h2 className="mt-2 font-serif text-4xl font-semibold text-brown-dark text-balance">
+      <h2 id={id} className={`text-h2 mt-4 ${dark ? "text-white" : "text-ink"}`}>
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-lg text-brown">{description}</p>
+        <p
+          className={`text-lead mt-5 ${dark ? "text-on-dark-muted" : "text-ink-muted"} ${
+            align === "center" ? "mx-auto max-w-2xl" : ""
+          }`}
+        >
+          {description}
+        </p>
       )}
     </Reveal>
   );

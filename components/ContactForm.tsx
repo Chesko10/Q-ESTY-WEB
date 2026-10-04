@@ -50,11 +50,11 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-confirm/30 bg-confirm/10 p-8 text-center">
-        <p className="font-serif text-xl font-semibold text-brown-dark">
+      <div className="rounded-inner border border-ok/30 bg-ok/10 p-8 text-center">
+        <p className="font-display text-xl font-bold text-ink">
           ¡Gracias! Hemos recibido tu solicitud.
         </p>
-        <p className="mt-2 text-brown">
+        <p className="mt-2 text-ink-muted">
           Te contactaremos en breve para organizar la demo.
         </p>
       </div>
@@ -63,8 +63,12 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-5">
+      <p className="font-display text-2xl font-bold tracking-[-0.02em] text-ink">
+        Solicita una demo
+      </p>
+
       <div className="grid gap-2">
-        <label htmlFor="name" className="text-sm font-medium text-brown-dark">
+        <label htmlFor="name" className="text-sm font-medium text-ink">
           Nombre
         </label>
         <input
@@ -72,13 +76,13 @@ export default function ContactForm() {
           name="name"
           type="text"
           required
-          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-control border border-line bg-white px-4 py-3 text-[0.9375rem] text-ink placeholder:text-ink-subtle/70 transition-[border-color,box-shadow] duration-200 focus:border-brand focus:shadow-[0_0_0_4px_rgb(227_23_62/0.14)] focus:outline-none"
           placeholder="Tu nombre"
         />
       </div>
 
       <div className="grid gap-2">
-        <label htmlFor="email" className="text-sm font-medium text-brown-dark">
+        <label htmlFor="email" className="text-sm font-medium text-ink">
           Email
         </label>
         <input
@@ -86,7 +90,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-control border border-line bg-white px-4 py-3 text-[0.9375rem] text-ink placeholder:text-ink-subtle/70 transition-[border-color,box-shadow] duration-200 focus:border-brand focus:shadow-[0_0_0_4px_rgb(227_23_62/0.14)] focus:outline-none"
           placeholder="tu@email.com"
         />
       </div>
@@ -94,7 +98,7 @@ export default function ContactForm() {
       <div className="grid gap-2">
         <label
           htmlFor="hotelName"
-          className="text-sm font-medium text-brown-dark"
+          className="text-sm font-medium text-ink"
         >
           Nombre del hotel/hostal
         </label>
@@ -103,7 +107,7 @@ export default function ContactForm() {
           name="hotelName"
           type="text"
           required
-          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-control border border-line bg-white px-4 py-3 text-[0.9375rem] text-ink placeholder:text-ink-subtle/70 transition-[border-color,box-shadow] duration-200 focus:border-brand focus:shadow-[0_0_0_4px_rgb(227_23_62/0.14)] focus:outline-none"
           placeholder="Hostal Los Almendros"
         />
       </div>
@@ -111,7 +115,7 @@ export default function ContactForm() {
       <div className="grid gap-2">
         <label
           htmlFor="telefono"
-          className="text-sm font-medium text-brown-dark"
+          className="text-sm font-medium text-ink"
         >
           Teléfono
         </label>
@@ -119,7 +123,7 @@ export default function ContactForm() {
           id="telefono"
           name="telefono"
           type="tel"
-          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-control border border-line bg-white px-4 py-3 text-[0.9375rem] text-ink placeholder:text-ink-subtle/70 transition-[border-color,box-shadow] duration-200 focus:border-brand focus:shadow-[0_0_0_4px_rgb(227_23_62/0.14)] focus:outline-none"
           placeholder="Opcional"
         />
       </div>
@@ -127,7 +131,7 @@ export default function ContactForm() {
       <div className="grid gap-2">
         <label
           htmlFor="message"
-          className="text-sm font-medium text-brown-dark"
+          className="text-sm font-medium text-ink"
         >
           Mensaje (opcional)
         </label>
@@ -135,16 +139,16 @@ export default function ContactForm() {
           id="message"
           name="message"
           rows={4}
-          className="rounded-lg border border-brown/20 bg-cream px-4 py-3 text-brown-dark placeholder:text-brown/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+          className="rounded-control border border-line bg-white px-4 py-3 text-[0.9375rem] text-ink placeholder:text-ink-subtle/70 transition-[border-color,box-shadow] duration-200 focus:border-brand focus:shadow-[0_0_0_4px_rgb(227_23_62/0.14)] focus:outline-none"
           placeholder="Cuéntanos un poco sobre tu alojamiento..."
         />
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-terracotta-dark">{errorMessage}</p>
+        <p role="alert" className="text-sm text-brand-dark">{errorMessage}</p>
       )}
 
-      <Button type="submit" disabled={status === "loading"} className="mt-2">
+      <Button type="submit" arrow={status !== "loading"} disabled={status === "loading"} className="mt-2 w-full">
         {status === "loading" ? "Enviando..." : "Solicitar demo"}
       </Button>
     </form>

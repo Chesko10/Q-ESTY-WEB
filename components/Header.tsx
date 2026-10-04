@@ -1,84 +1,136 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
 
 const navLinks = [
-  { href: "#features", label: "Funciones" },
   { href: "#how", label: "Cómo funciona" },
+  { href: "#features", label: "Funciones" },
+  { href: "#hotels", label: "Para hoteles" },
   { href: "#pricing", label: "Precios" },
-  { href: "#testimonials", label: "Testimonios" },
   { href: "#faq", label: "FAQ" },
 ];
 
-export default function Header() {
+const tones = {
+  light: {
+    glass:
+      "bg-white/75 shadow-[inset_0_0_0_1px_rgb(237_230_228/0.9),var(--shadow-soft)] backdrop-blur-xl backdrop-saturate-150",
+    brand: "text-ink",
+    link: "text-ink-muted hover:text-ink focus-visible:text-ink",
+    icon: "text-ink",
+    mobileLink: "border-line text-ink",
+  },
+  dark: {
+    glass:
+      "bg-night/75 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.08),0_8px_24px_-12px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150",
+    brand: "text-white",
+    link: "text-on-dark-muted hover:text-white focus-visible:text-white",
+    icon: "text-white",
+    mobileLink: "border-white/10 text-white",
+  },
+};
+
+export default function Header({ tone = "light" }: { tone?: keyof typeof tones }) {
+  const t = tones[tone];
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const glass = scrolled || open;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-sand bg-cream/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center gap-10 px-6 py-3.5">
-        <a href="#top" className="flex shrink-0 items-center gap-2.5">
-          <Image
-            src="/questy_icon_transparent.png"
-            alt="Qüesty"
-            width={36}
-            height={36}
-          />
-          <span className="hidden font-serif text-xl font-bold text-brown-dark sm:inline">
-            Qüesty
-          </span>
-        </a>
-
-        <nav className="hidden flex-1 items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-brown transition-colors hover:text-brown-dark"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="ml-auto hidden md:block">
-          <Button href="#demo" className="px-5 py-2.5 text-sm">
-            Solicitar demo
-            <span aria-hidden className="ml-1.5">
-              →
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
+      <div
+        className={`mx-auto max-w-[1200px] rounded-inner transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out-soft ${
+          glass ? t.glass : "bg-transparent"
+        }`}
+      >
+        <div className="flex items-center gap-8 px-4 py-3 sm:px-5">
+          <a
+            href="#top"
+            className="flex shrink-0 items-center gap-2.5 rounded-control focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+          >
+            <Image
+              src="/questy_icon_transparent.png"
+              alt=""
+              width={34}
+              height={34}
+            />
+            <span className={`font-display text-xl font-bold tracking-[-0.02em] ${t.brand}`}>
+              Qüesty
             </span>
-          </Button>
+          </a>
+
+          <nav aria-label="Principal" className="hidden flex-1 items-center gap-7 lg:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`whitespace-nowrap text-[0.9375rem] transition-colors focus-visible:outline-none ${t.link}`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="ml-auto hidden lg:block">
+            <Button href="#demo" arrow className="px-5 py-3 text-sm">
+              Solicitar demo
+            </Button>
+          </div>
+
+          <button
+            type="button"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((value) => !value)}
+            className={`ml-auto flex h-10 w-10 items-center justify-center rounded-control focus-visible:outline-2 focus-visible:outline-brand lg:hidden ${t.icon}`}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
 
-        <button
-          type="button"
-          aria-label="Abrir menú"
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-          className="ml-auto text-2xl text-brown-dark md:hidden"
+        <div
+          id="mobile-menu"
+          className={`grid transition-[grid-template-rows] duration-300 ease-out-soft lg:hidden ${
+            open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          }`}
         >
-          ☰
-        </button>
-      </div>
-
-      {open && (
-        <div className="flex flex-col gap-1 border-t border-sand bg-cream px-6 pb-4 pt-2 md:hidden">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="border-b border-sand py-3 text-sm text-brown"
-            >
-              {link.label}
-            </a>
-          ))}
-          <Button href="#demo" className="mt-3 justify-center text-sm" onClick={() => setOpen(false)}>
-            Solicitar demo
-          </Button>
+          <div className="min-h-0 overflow-hidden">
+            <nav aria-label="Móvil" className="flex flex-col px-4 pb-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  tabIndex={open ? 0 : -1}
+                  onClick={() => setOpen(false)}
+                  className={`border-b py-3.5 ${t.mobileLink}`}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <Button
+                href="#demo"
+                arrow
+                tabIndex={open ? 0 : -1}
+                className="mt-4"
+                onClick={() => setOpen(false)}
+              >
+                Solicitar demo
+              </Button>
+            </nav>
+          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

@@ -1,45 +1,75 @@
 import Image from "next/image";
 
-const links = [
+const productLinks = [
+  { href: "#how", label: "Cómo funciona" },
   { href: "#features", label: "Funciones" },
+  { href: "#hotels", label: "Para hoteles" },
   { href: "#pricing", label: "Precios" },
   { href: "#faq", label: "FAQ" },
-  { href: "mailto:guesty1318@gmail.com", label: "Contacto" },
 ];
+
+const contactEmail = "guesty1318@gmail.com";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-sand px-6 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:flex-row sm:justify-between">
-        <div className="flex items-center gap-2.5 text-center text-sm text-brown sm:text-left">
-          <Image
-            src="/questy_icon_transparent.png"
-            alt="Qüesty"
-            width={28}
-            height={28}
-          />
-          <span>
-            <span className="block">
-              © {year} Qüesty. Todos los derechos reservados.
-            </span>
-            <span className="block text-xs text-brown/85">
+    <footer className="pt-20 pb-10">
+      <div className="container-page">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
+          <div>
+            <a href="#top" className="inline-flex items-center gap-2.5">
+              <Image src="/questy_icon_transparent.png" alt="" width={34} height={34} />
+              <span className="font-display text-xl font-bold tracking-[-0.02em] text-ink">
+                Qüesty
+              </span>
+            </a>
+            <p className="mt-4 max-w-[32ch] text-ink-muted">
               Tu anfitrión virtual, siempre despierto.
-            </span>
-          </span>
+            </p>
+          </div>
+
+          <nav aria-label="Pie de página">
+            <h2 className="text-eyebrow text-ink-subtle">Producto</h2>
+            <ul className="mt-5 flex flex-col gap-3">
+              {productLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-[0.9375rem] text-ink-muted transition-colors hover:text-brand"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <h2 className="text-eyebrow text-ink-subtle">Contacto</h2>
+            <ul className="mt-5 flex flex-col gap-3">
+              <li>
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="text-[0.9375rem] text-ink-muted transition-colors hover:text-brand"
+                >
+                  {contactEmail}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#demo"
+                  className="text-[0.9375rem] text-ink-muted transition-colors hover:text-brand"
+                >
+                  Solicitar demo
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="flex gap-6">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-brown transition-colors hover:text-terracotta"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="mt-16 border-t border-line pt-8 text-[0.875rem] text-ink-subtle">
+          © {year} Qüesty. Todos los derechos reservados.
         </div>
       </div>
     </footer>

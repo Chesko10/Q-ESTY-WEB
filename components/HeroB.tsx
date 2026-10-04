@@ -2,21 +2,22 @@ import Image from "next/image";
 import Button from "./ui/Button";
 import phoneLanguages from "@/public/images/movil-idiomas.jpg";
 
-export default function Hero() {
+/** Variante de prueba del hero: mismo diseño sobre fondo granate oscuro. */
+export default function HeroB() {
   return (
-    <section id="top" className="mesh-light relative overflow-hidden">
+    <section id="top" className="mesh-hero-dark relative overflow-hidden">
       <div className="container-page grid items-center gap-16 pt-32 pb-24 sm:pt-40 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:pt-44 lg:pb-32">
         <div className="flex flex-col items-start">
           <span
-            className="animate-fade-in-up inline-flex items-center gap-2 rounded-control bg-white px-3 py-2 text-[0.8125rem] font-medium text-ink-muted shadow-[inset_0_0_0_1px_var(--color-line)]"
+            className="animate-fade-in-up inline-flex items-center gap-2 rounded-control bg-white/8 px-3 py-2 text-[0.8125rem] font-medium text-on-dark-muted shadow-[inset_0_0_0_1px_rgb(255_255_255/0.14)]"
             style={{ animationDelay: "0ms" }}
           >
-            <span className="h-[7px] w-[7px] rounded-full bg-ok shadow-[0_0_0_3px_rgb(34_197_94/0.18)]" />
+            <span className="h-[7px] w-[7px] rounded-full bg-ok shadow-[0_0_0_3px_rgb(34_197_94/0.22)]" />
             Activo 24 h · sin apps
           </span>
 
           <h1
-            className="animate-fade-in-up text-display mt-7 text-ink"
+            className="animate-fade-in-up text-display mt-7 text-white"
             style={{ animationDelay: "90ms" }}
           >
             Tu anfitrión virtual,{" "}
@@ -24,7 +25,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="animate-fade-in-up text-lead mt-7 max-w-[34rem] text-ink-muted"
+            className="animate-fade-in-up text-lead mt-7 max-w-[34rem] text-on-dark-muted"
             style={{ animationDelay: "180ms" }}
           >
             Tus huéspedes escanean el QR de la habitación y resuelven sus
@@ -38,7 +39,7 @@ export default function Hero() {
             <Button href="#demo" arrow>
               Solicitar demo
             </Button>
-            <Button href="#how" variant="secondary">
+            <Button href="#how" variant="ghostDark">
               Cómo funciona
             </Button>
           </div>
@@ -55,7 +56,7 @@ export default function Hero() {
               placeholder="blur"
               preload
               sizes="(min-width: 1024px) 400px, 360px"
-              className="h-auto w-full rounded-card shadow-float"
+              className="h-auto w-full rounded-card shadow-[0_32px_64px_-24px_rgb(0_0_0/0.7),0_0_0_1px_rgb(255_255_255/0.06)]"
             />
           </div>
 

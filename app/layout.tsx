@@ -1,23 +1,25 @@
-import type { Metadata } from "next";
-import { Baloo_2, Work_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const baloo2 = Baloo_2({
-  variable: "--font-baloo",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
 });
 
-const workSans = Work_Sans({
-  variable: "--font-work-sans",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Qüesty — Asistente virtual 24h para huéspedes vía QR",
   description:
     "Qüesty es el asistente virtual que resuelve las dudas de tus huéspedes al instante, escaneando un código QR. Sin llamadas, sin esperas, en 6 idiomas.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -28,9 +30,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${baloo2.variable} ${workSans.variable} h-full antialiased`}
+      className={`${jakarta.variable} ${geist.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream text-brown-dark font-sans">
+      <body className="min-h-full flex flex-col bg-white font-sans text-[1.0625rem] leading-[1.65] text-ink">
         {children}
       </body>
     </html>

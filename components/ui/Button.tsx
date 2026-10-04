@@ -1,18 +1,23 @@
 import { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
 const base =
-  "inline-flex items-center justify-center rounded-full px-7 py-3.5 font-sans font-semibold transition-all duration-200 ease-out hover:scale-[1.03] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100";
+  "group inline-flex items-center justify-center gap-2 rounded-control px-6 py-3.5 font-sans text-[0.9375rem] font-semibold leading-none transition-[transform,box-shadow,background-color] duration-250 ease-out-soft hover:-translate-y-px active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0";
 
 const variants = {
   primary:
-    "bg-terracotta text-cream shadow-[0_8px_24px_-6px_rgba(232,82,58,0.45)] hover:bg-terracotta-dark",
-  outline:
-    "border border-sand bg-cream text-brown-dark hover:border-terracotta hover:text-terracotta",
+    "bg-brand text-white shadow-brand hover:bg-brand-dark hover:shadow-[0_10px_24px_-8px_rgb(227_23_62/0.6)]",
+  secondary:
+    "bg-white text-ink shadow-[inset_0_0_0_1px_var(--color-line),var(--shadow-soft)] hover:shadow-[inset_0_0_0_1px_var(--color-blush-300),var(--shadow-medium)]",
+  onDark:
+    "bg-white text-night hover:bg-blush-50 focus-visible:outline-white",
+  ghostDark:
+    "bg-white/8 text-white shadow-[inset_0_0_0_1px_rgb(255_255_255/0.22)] backdrop-blur-md hover:bg-white/14 hover:shadow-[inset_0_0_0_1px_rgb(255_255_255/0.4)] focus-visible:outline-white",
 };
 
 type CommonProps = {
   variant?: keyof typeof variants;
   className?: string;
+  arrow?: boolean;
 };
 
 type ButtonProps = CommonProps &
@@ -22,21 +27,35 @@ type LinkProps = CommonProps &
   AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
 
 export default function Button(props: ButtonProps | LinkProps) {
-  const { variant = "primary", className = "", ...rest } = props;
+  const { variant = "primary", className = "", arrow = false, children, ...rest } =
+    props;
   const classes = `${base} ${variants[variant]} ${className}`;
+  const content = (
+    <>
+      {children}
+      {arrow && (
+        <span
+          aria-hidden
+          className="transition-transform duration-250 ease-out-soft group-hover:translate-x-0.5"
+        >
+          →
+        </span>
+      )}
+    </>
+  );
 
   if ("href" in props && props.href) {
     const { href, ...anchorRest } = rest as AnchorHTMLAttributes<HTMLAnchorElement>;
     return (
       <a href={href} className={classes} {...anchorRest}>
-        {props.children}
+        {content}
       </a>
     );
   }
 
   return (
     <button className={classes} {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}>
-      {props.children}
+      {content}
     </button>
   );
 }

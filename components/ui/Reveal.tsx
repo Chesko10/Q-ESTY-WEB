@@ -6,10 +6,16 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   delayMs?: number;
+  as?: "div" | "li";
 };
 
-export default function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
+export default function Reveal({
+  children,
+  className = "",
+  delayMs = 0,
+  as: Tag = "div",
+}: RevealProps) {
+  const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -31,12 +37,12 @@ export default function Reveal({ children, className = "", delayMs = 0 }: Reveal
   }, []);
 
   return (
-    <div
+    <Tag
       ref={ref}
       className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}
       style={{ transitionDelay: `${delayMs}ms` }}
     >
       {children}
-    </div>
+    </Tag>
   );
 }

@@ -1,32 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --color-cream: #fbf3ec;
-  --color-cream-dark: #f5e6d9;
-  --color-terracotta: #e8523a;
-  --color-terracotta-dark: #c43f2a;
-  --color-brown: #6b4335;
-  --color-brown-dark: #3a1b12;
-  --color-amber: #ef9f27;
-  --color-peach: #fbd9ce;
-  --color-sand: #ead9c9;
-  --color-confirm: #2fbf6f;
-}
+/* Qüesty design tokens — see the visual guide for usage */
+@theme {
+  --color-brand: #e3173e;
+  --color-brand-dark: #b3122f;
+  --color-brand-bright: #ff4d6d;
 
-@theme inline {
-  --color-cream: var(--color-cream);
-  --color-cream-dark: var(--color-cream-dark);
-  --color-terracotta: var(--color-terracotta);
-  --color-terracotta-dark: var(--color-terracotta-dark);
-  --color-brown: var(--color-brown);
-  --color-brown-dark: var(--color-brown-dark);
-  --color-amber: var(--color-amber);
-  --color-peach: var(--color-peach);
-  --color-sand: var(--color-sand);
-  --color-confirm: var(--color-confirm);
+  --color-ink: #1c1517;
+  --color-ink-muted: #5e5458;
+  --color-ink-subtle: #6f6569;
 
-  --font-serif: var(--font-baloo);
-  --font-sans: var(--font-work-sans);
+  --color-canvas: #faf7f6;
+  --color-line: #ede6e4;
+
+  --color-blush-50: #fdf0ee;
+  --color-blush-100: #fbe3e0;
+  --color-blush-300: #f4a9a3;
+
+  --color-night: #14090c;
+  --color-night-2: #22111a;
+  --color-maroon: #5c0e1e;
+  --color-on-dark-muted: #c9b9bd;
+
+  --color-ok: #22c55e;
+
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-control: 12px;
+  --radius-inner: 14px;
+  --radius-card: 24px;
+
+  --shadow-soft: 0 1px 2px rgb(28 21 23 / 0.05), 0 2px 8px -2px rgb(28 21 23 / 0.06);
+  --shadow-medium: 0 4px 12px -4px rgb(28 21 23 / 0.08), 0 12px 32px -12px rgb(28 21 23 / 0.12);
+  --shadow-float: 0 8px 20px -8px rgb(28 21 23 / 0.12), 0 32px 64px -24px rgb(92 14 30 / 0.28);
+  --shadow-brand: 0 6px 16px -6px rgb(227 23 62 / 0.55);
+
+  --ease-out-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 html {
@@ -34,96 +44,174 @@ html {
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-brown-dark);
+  background: #ffffff;
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-blush-100);
+  color: var(--color-ink);
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
+/* Layout primitives shared by every section */
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 20px;
+
+  @media (width >= 768px) {
+    padding-inline: 32px;
+  }
+}
+
+@utility section-y {
+  padding-block: 96px;
+
+  @media (width >= 1024px) {
+    padding-block: 144px;
+  }
+}
+
+/* Type scale */
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: 750;
+  font-size: clamp(2.75rem, 4vw + 1.25rem, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+@utility text-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+@utility text-h3 {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+@utility text-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+@utility text-lead {
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+/* Soft mesh gradients for the hero and the dark section */
+.mesh-light {
+  background:
+    radial-gradient(42% 55% at 85% 18%, rgb(227 23 62 / 0.14), transparent 70%),
+    radial-gradient(38% 50% at 72% 88%, rgb(244 169 163 / 0.42), transparent 70%),
+    radial-gradient(50% 60% at 8% 0%, var(--color-blush-50), transparent 70%),
+    #ffffff;
+}
+
+.mesh-dark {
+  background:
+    radial-gradient(45% 70% at 12% 0%, rgb(92 14 30 / 0.95), transparent 70%),
+    radial-gradient(35% 60% at 95% 100%, rgb(227 23 62 / 0.32), transparent 70%),
+    var(--color-night);
+}
+
+/* Hero B (prueba): night con degradado hacia maroon y un toque de rojo de marca */
+.mesh-hero-dark {
+  background:
+    radial-gradient(55% 70% at 88% 20%, rgb(92 14 30 / 0.9), transparent 72%),
+    radial-gradient(40% 55% at 70% 100%, rgb(227 23 62 / 0.28), transparent 70%),
+    radial-gradient(45% 60% at 0% 0%, rgb(92 14 30 / 0.45), transparent 70%),
+    var(--color-night);
+}
+
+.mesh-brand {
+  background:
+    radial-gradient(60% 90% at 100% 100%, rgb(92 14 30 / 0.75), transparent 70%),
+    radial-gradient(50% 80% at 0% 0%, rgb(179 18 47 / 0.6), transparent 70%),
+    var(--color-brand);
+}
+
+/* Card hover used across sections */
+.card-hover {
+  transition:
+    transform 0.3s var(--ease-out-soft),
+    box-shadow 0.3s var(--ease-out-soft);
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
 /* Scroll reveal (used by components/ui/Reveal.tsx) */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
 }
 
 .reveal-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 /* One-shot entrance animation for above-the-fold content (Hero) */
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out both;
+  animation: fade-in-up 0.8s var(--ease-out-soft) both;
 }
 
-/* Soft glow pulse for the primary hero CTA */
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(232, 82, 58, 0.35);
-  }
-  50% {
-    box-shadow: 0 0 0 14px rgba(232, 82, 58, 0);
-  }
-}
-
-.btn-pulse {
-  animation: pulse-glow 2.5s ease-out infinite;
-}
-
-/* Warm, soft card depth used by Problem, Features and Testimonials cards */
-.card-elevate {
-  border: 1px solid var(--color-sand);
-  box-shadow: 0 10px 30px -18px rgba(58, 27, 18, 0.35);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
-}
-
-.card-elevate:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-terracotta);
-  box-shadow: 0 20px 40px -20px rgba(58, 27, 18, 0.45);
-}
-
-/* Gentle float used by the Hero chat mockup */
+/* Gentle float for the hero photo and its badges */
 @keyframes float {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
-/* Typing indicator dots inside ChatMockup */
-@keyframes typing-bounce {
-  0%,
-  60%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.5;
-  }
-  30% {
-    transform: translateY(-4px);
-    opacity: 1;
-  }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .reveal {
     opacity: 1;
     transform: none;
@@ -131,18 +219,13 @@ body {
   }
 
   .animate-fade-in-up,
-  .btn-pulse {
+  .animate-float {
     animation: none;
   }
 
-  .card-elevate,
-  .card-elevate:hover {
+  .card-hover,
+  .card-hover:hover {
     transform: none;
     transition: none;
-  }
-
-  [class*="animate-[float"],
-  [class*="animate-[typing-bounce"] {
-    animation: none;
   }
 }

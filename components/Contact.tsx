@@ -1,37 +1,45 @@
-import Image from "next/image";
+import { Check } from "lucide-react";
 import ContactForm from "./ContactForm";
 import Reveal from "./ui/Reveal";
 
+const reassurances = [
+  "Te contactamos en breve",
+  "Demo con la información de tu alojamiento",
+  "Sin compromiso",
+];
+
 export default function Contact() {
   return (
-    <section id="demo" className="scroll-mt-24 border-y border-sand bg-cream-dark px-6 py-24">
-      <div className="mx-auto max-w-xl">
-        <Reveal className="text-center">
-          <Image
-            src="/questy_icon_transparent.png"
-            alt="Qüesty"
-            width={56}
-            height={56}
-            className="mx-auto mb-4"
-          />
-          <span className="font-sans text-xs font-bold uppercase tracking-widest text-terracotta">
-            Empieza hoy
-          </span>
-          <h2 className="mt-2 font-serif text-4xl font-semibold text-brown-dark text-balance">
-            Solicita una demo de Qüesty
-          </h2>
-          <p className="mt-4 text-lg text-brown">
-            Cuéntanos sobre tu alojamiento y te mostramos cómo Qüesty puede
-            cuidar de tus huéspedes.
-          </p>
-        </Reveal>
+    <section id="demo" aria-labelledby="demo-title" className="scroll-mt-20 px-3 py-3 sm:px-4 sm:py-4">
+      <div className="mesh-brand overflow-hidden rounded-card">
+        <div className="container-page section-y grid items-center gap-14 text-white lg:grid-cols-[1fr_1fr] lg:gap-20">
+          <Reveal>
+            <span className="text-eyebrow text-white">Empieza hoy</span>
+            <h2 id="demo-title" className="text-display mt-5 text-[clamp(2.5rem,5vw,4.5rem)] text-white">
+              Dale a tu recepción un descanso.
+            </h2>
+            <p className="text-lead mt-6 max-w-[34rem] text-white">
+              Cuéntanos sobre tu alojamiento y te enseñamos cómo Qüesty
+              atendería a tus huéspedes.
+            </p>
+            <ul className="mt-10 flex flex-col gap-3">
+              {reassurances.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-white">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/15">
+                    <Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
 
-        <Reveal
-          delayMs={120}
-          className="mt-12 rounded-[14px] bg-white p-8 shadow-sm ring-1 ring-brown/10 sm:p-10"
-        >
-          <ContactForm />
-        </Reveal>
+          <Reveal delayMs={120}>
+            <div className="rounded-card bg-white p-7 text-ink shadow-float sm:p-10">
+              <ContactForm />
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

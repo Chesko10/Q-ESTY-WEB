@@ -4,6 +4,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Features from "@/components/Features";
 import Stats from "@/components/Stats";
 import ForHotels from "@/components/ForHotels";
+import ReviewsBoost from "@/components/ReviewsBoost";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Faq from "@/components/Faq";
@@ -19,6 +20,7 @@ export default function Home() {
         <HowItWorks />
         <Features />
         <Stats />
+        <ReviewsBoost />
         <ForHotels />
         <Testimonials />
         <Pricing />

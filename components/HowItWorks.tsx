@@ -1,7 +1,6 @@
-import Image from "next/image";
+import HowItWorksVideo from "./HowItWorksVideo";
 import Reveal from "./ui/Reveal";
 import SectionHeader from "./ui/SectionHeader";
-import qrCard from "@/public/images/qr-mesilla.jpg";
 
 const steps = [
   {
@@ -26,13 +25,7 @@ export default function HowItWorks() {
     <section id="how" className="section-y scroll-mt-20">
       <div className="container-page grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal className="mx-auto w-full max-w-md lg:sticky lg:top-28 lg:max-w-none">
-          <Image
-            src={qrCard}
-            alt="Tarjeta de Qüesty con código QR en un soporte de metacrilato sobre la mesilla de una habitación de The Cathedral Hostel."
-            placeholder="blur"
-            sizes="(min-width: 1200px) 548px, (min-width: 1024px) 45vw, 448px"
-            className="h-auto w-full rounded-card shadow-float"
-          />
+          <HowItWorksVideo />
         </Reveal>
 
         <div className="lg:pt-8">
